@@ -17,6 +17,7 @@ export default function (entries: EntryWebpack[] | null) {
     const defaultEntryHTMLPlugin = config.plugins.filter(function (plugin: any) {
       return plugin.constructor.name === 'HtmlWebpackPlugin';
     })[0];
+    defaultEntryHTMLPlugin.options = defaultEntryHTMLPlugin.userOptions || defaultEntryHTMLPlugin.options;
     defaultEntryHTMLPlugin.options.chunks = [defaultEntryName];
 
     // config.entry is not an array in Create React App 4
